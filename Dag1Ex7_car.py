@@ -8,11 +8,29 @@ class Car:
         self.color = color
         self._mileage = mileage
 
-    def info(self):
+    def __str__(self):
         """return a string with information about the car"""
         return f"My car is a {self.color} {self.make} {self.type}. " \
                f"Mileage: {self._mileage}."
+    
+    def __repr__(self):
+        return f"Car('{self._make}', '{self._type}', '{self._color}')"
 
+    def __eq__(self, other):
+        return self._make == other._make and self._type == other._type
+
+    def __gt__(self, other):
+        return self._mileage > other._mileage
+    def __lt__(self, other):
+        return self._mileage < other._mileage
+    def __ge__(self, other):
+        return self._mileage >= other._mileage
+    def __le__(self, other):
+        return self._mileage <= other._mileage
+
+    def __gt__(self, other):
+        return self._mileage > other._mileage
+    
     def drive(self, distance):
         """drive a distance and increment the mileage"""
         if distance < 0:
@@ -22,56 +40,16 @@ class Car:
 
 
 car = Car('Volkswagen', 'Kever', 'Red')
-
-print( car.info() )
+car2 = Car('Volkswagen', 'Kever', 'Blauwe')
+print(car)
 
 car.drive(123)
 car.drive(12)
-car.drive(1043)
+car2.drive(1043)
 
-print( car.info() )
+print(car > car2)
 
 try:
     car.drive(-5)
 except Exception as e:
     print(e)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def __str__(self):
-#         """return a string with information about the car"""
-#         return f"My car is a {self._color} {self._make} {self._type}. " \
-#                f"Mileage: {self._mileage}."
-
-#     def __repr__(self):
-#         return f"Car('{self._make}', '{self._type}', '{self._color}')"
-
-#     def __eq__(self, other):
-#         return self._make == other._make and self._type == other._type
-
-#     def __gt__(self, other):
-#         return self._mileage > other._mileage
-#     def __lt__(self, other):
-#         return self._mileage < other._mileage
-#     def __ge__(self, other):
-#         return self._mileage >= other._mileage
-#     def __le__(self, other):
-#         return self._mileage <= other._mileage
