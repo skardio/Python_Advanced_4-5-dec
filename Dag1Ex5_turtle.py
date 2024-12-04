@@ -11,7 +11,6 @@ t1.color('red')
 t2.color('blue')
 
 n = 5
-# angle = 360/n   # 180 - (180 - 360/n)
 angle = 180 - (180 - 360/n)
 
 for _ in range(n):
@@ -19,7 +18,6 @@ for _ in range(n):
     t1.left(angle)
 
 n = 8
-# angle = 360/n   # 180 - (180 - 360/n)
 angle = 180 - (180 - 360/n)
 
 for _ in range(n):
